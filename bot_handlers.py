@@ -15,15 +15,10 @@ Hi there, I am EchoBot.
 I am here to echo your kind words back to you. Just say anything nice and I'll say the exact same thing to you!\
 """)
 
-@bot.message_handler(regexp='че по олдам')
-def command_oldy(message):
-    bot.send_message(message.chat.id, 'Сейчас проверим!')
-    bot.send_message(message.chat.id, 'Олды тут?тест')
-
 
 @bot.message_handler(regexp='(?:смех|смешно|лол)')
 def command_oldy3(message):
-    bot.reply_to(message.chat.id, 'ниже смех')
+    bot.send_message(message.chat.id, 'ниже смех')
     voice = open('/app/res/smeh.ogg', 'rb')
     bot.send_voice(message.chat.id, voice)
 
