@@ -9,6 +9,13 @@ def send_welcome(message):
     bot.send_voice(chat_id, voice)
     bot.send_voice(chat_id, "FILEID")
 
+@bot.message_handler(commands=['help', 'start2'])
+def send_welcome(message):
+    bot.reply_to(message, """\
+Hi there, I am EchoBot.
+I am here to echo your kind words back to you. Just say anything nice and I'll say the exact same thing to you!\
+""")
+
 @bot.message_handler(regexp='че по олдам')
 def command_oldy(message):
     bot.send_message(message.chat.id, 'Сейчас проверим!')
