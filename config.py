@@ -1,0 +1,2 @@
+TOKEN = '773312473:AAED8hKRjRI5X8GJTtNca8cTFUGPzLXofUI'
+APP_NAME = 'universalsoldierbot'
