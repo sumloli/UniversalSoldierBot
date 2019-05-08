@@ -14,9 +14,13 @@ def send_welcome2(message):
 Hi there, I am EchoBot.
 I am here to echo your kind words back to you. Just say anything nice and I'll say the exact same thing to you!\
 """)
+@bot.message_handler(regexp='(?:ору|лол)')
+def command_smeh(message):
+    bot.send_message(message, 'ниже смех')
+    voice = open('/app/res/smeh.ogg', 'rb')
+    bot.send_voice(message, voice)
 
-
-@bot.message_handler(regexp='(?:смех|смешно|лол)')
+@bot.message_handler(regexp='(?:смех|смешно)')
 def command_oldy3(message):
     bot.send_message(message.chat.id, 'ниже смех')
     voice = open('/app/res/smeh.ogg', 'rb')
