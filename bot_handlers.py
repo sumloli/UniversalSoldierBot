@@ -15,6 +15,11 @@ def command_oldy(message):
     bot.send_message(message.chat.id, 'Олды тут?')
 
 
+@bot.message_handler(regexp='че ')
+def command_oldy3(message):
+    bot.send_message(message.chat.id, 'Сейчас проверим!')
+    bot.send_message(message.chat.id, 'Олды тут?')
+
 @bot.message_handler(content_types=['text'])
 def repeat_all_messages(message):
     bot.send_message(message.chat.id, message.text)
