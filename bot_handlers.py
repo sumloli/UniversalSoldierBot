@@ -2,11 +2,6 @@ from bot import bot
 from messages import *
 
 
-@bot.message_handler(regexp='Jsem Vojta')
-def command_oldy7(message):
-    bot.send_message(message.chat.id, 'Hello Vojto Glad to see you!')
-
-
 @bot.message_handler(commands=['start', 'old', 'OldyGoRmkBot'])
 def send_welcome(message):
     bot.send_message(message.chat.id, HELLO_MESSAGE)
@@ -16,11 +11,6 @@ def send_welcome(message):
 def command_oldy(message):
     bot.send_message(message.chat.id, 'Сейчас проверим!')
     bot.send_message(message.chat.id, 'Олды тут?')
-
-
-@bot.message_handler(regexp='OldyGoRmkBot')
-def command_oldy1(message):
-    bot.send_message(message.chat.id, 'Че надо?')
 
 
 @bot.message_handler(regexp='на месте')
