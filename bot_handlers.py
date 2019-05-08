@@ -8,18 +8,22 @@ from messages import *
 #    voice = open('/app/res/smeh.ogg', 'rb')
 #    bot.send_voice(message.chat.id, voice)
 
-@bot.message_handler(commands=['help', 'start'])
+@bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.reply_to(message, HELLO_MESSAGE)
 
+@bot.message_handler(commands=['help'])
+def send_help(message):
+    bot.reply_to(message, HELP_MESSAGE)
+
 @bot.message_handler(commands=['смех'])
-def smeh(message):
+def command_smeh(message):
     bot.send_message(message.chat.id, 'доставлено:')
     voice = open('/app/res/smeh.ogg', 'rb')
     bot.send_voice(message.chat.id, voice)
 
 @bot.message_handler(regexp='(?:ору|лол|смешно|хах|хаха)')
-def command_smeh(message):
+def smeh(message):
     voice = open('/app/res/smeh.ogg', 'rb')
     bot.send_voice(message.chat.id, voice)
 
