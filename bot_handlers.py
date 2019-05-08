@@ -8,11 +8,11 @@ from messages import *
 #    voice = open('/app/res/smeh.ogg', 'rb')
 #    bot.send_voice(message.chat.id, voice)
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['lolstart'])
 def send_welcome(message):
     bot.reply_to(message, HELLO_MESSAGE)
 
-@bot.message_handler(commands=['help'])
+@bot.message_handler(commands=['lolhelp'])
 def send_help(message):
     bot.reply_to(message, HELP_MESSAGE)
 
