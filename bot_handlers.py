@@ -23,7 +23,7 @@ def command_oldy(message):
 
 @bot.message_handler(regexp='(?:смех|смешно|лол)')
 def command_oldy3(message):
-    bot.send_message(message.chat.id, 'ниже смех')
+    bot.reply_to(message.chat.id, 'ниже смех')
     voice = open('/app/res/smeh.ogg', 'rb')
     bot.send_voice(message.chat.id, voice)
 
