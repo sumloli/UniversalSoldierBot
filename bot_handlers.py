@@ -5,7 +5,7 @@ from messages import *
 @bot.message_handler(commands=['start', 'soldier'])
 def send_welcome(message):
     bot.send_message(message.chat.id, HELLO_MESSAGE)
-    voice = open('/Users/sumloli/PycharmProjects/UniversalSoldierBot/res/smeh.ogg', 'rb')
+    voice = open('/app/res/smeh.ogg', 'rb')
     bot.send_voice(message.chat.id, voice)
 
 @bot.message_handler(commands=['help', 'start2'])
