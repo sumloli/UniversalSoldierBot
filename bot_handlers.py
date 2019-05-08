@@ -10,7 +10,7 @@ def send_welcome(message):
     bot.send_voice(message, "FILEID")
 
 @bot.message_handler(commands=['help', 'start2'])
-def send_welcome(message):
+def send_welcome2(message):
     bot.reply_to(message, """\
 Hi there, I am EchoBot.
 I am here to echo your kind words back to you. Just say anything nice and I'll say the exact same thing to you!\
