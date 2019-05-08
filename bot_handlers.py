@@ -6,8 +6,8 @@ from messages import *
 def send_welcome(message):
     bot.send_message(message.chat.id, HELLO_MESSAGE)
     voice = open('/res/smeh.ogg', 'rb')
-    bot.send_voice(chat_id, voice)
-    bot.send_voice(chat_id, "FILEID")
+    bot.send_voice(message, voice)
+    bot.send_voice(message, "FILEID")
 
 @bot.message_handler(commands=['help', 'start2'])
 def send_welcome(message):
