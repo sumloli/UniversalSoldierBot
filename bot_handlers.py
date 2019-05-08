@@ -2,25 +2,17 @@ from bot import bot
 from messages import *
 
 
-@bot.message_handler(commands=['start', 'old', 'OldyGoRmkBot'])
+@bot.message_handler(commands=['start', 'soldier'])
 def send_welcome(message):
     bot.send_message(message.chat.id, HELLO_MESSAGE)
-
+    voice = open('/res/smeh.ogg', 'rb')
+    bot.send_voice(message.chat.id, voice)
+    bot.send_voice(message.chat.id, "FILEID")
 
 @bot.message_handler(regexp='че по олдам')
 def command_oldy(message):
     bot.send_message(message.chat.id, 'Сейчас проверим!')
     bot.send_message(message.chat.id, 'Олды тут?')
-
-
-@bot.message_handler(regexp='на месте')
-def command_oldy2(message):
-    bot.send_message(message.chat.id, 'Олды на месте!')
-
-
-@bot.message_handler(regexp='аниме')
-def command_oldy3(message):
-    bot.send_message(message.chat.id, 'Аниме говно!')
 
 
 @bot.message_handler(content_types=['text'])
