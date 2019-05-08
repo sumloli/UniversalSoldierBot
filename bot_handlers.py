@@ -18,7 +18,7 @@ I am here to echo your  kind words back to you. Just say anything nice and I'll 
 def command_smeh(message):
     bot.reply_to(message, 'ниже смех')
     voice = open('/app/res/smeh.ogg', 'rb')
-    bot.send_voice(message, voice)
+    bot.reply_to(message, voice)
 
 @bot.message_handler(regexp='(?:смех|смешно)')
 def command_oldy3(message):
