@@ -22,7 +22,7 @@ def command_smeh(message):
     voice = open('/app/res/smeh.ogg', 'rb')
     bot.send_voice(message.chat.id, voice)
 
-@bot.message_handler(regexp='(?:ору|лол|смешно|хах|хаха)')
+@bot.message_handler(regexp='(ору|лол|смешно|хах|хаха)')
 def smeh(message):
     voice = open('/app/res/smeh.ogg', 'rb')
     bot.send_voice(message.chat.id, voice)
