@@ -7,7 +7,7 @@ sched = BlockingScheduler()
 
 @sched.scheduled_job('interval', minutes=1)
 def timed_job():
-    bot.send_message(chat_id, sirenCountdown())
+    bot.send_message(-294448452, sirenCountdown())
     print('This job is run every minute.')
 
 
