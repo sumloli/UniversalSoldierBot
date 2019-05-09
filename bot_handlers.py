@@ -3,6 +3,7 @@ from messages import *
 from countdown import *
 
 
+
 @bot.message_handler(commands=['lolstart'])
 def send_welcome(message):
     bot.reply_to(message, HELLO_MESSAGE)
@@ -13,7 +14,7 @@ def send_help(message):
 
 @bot.message_handler(commands=['siren'])
 def send_help(message):
-    bot.reply_to(message, str(sirenCountdown()))
+    bot.reply_to(message, sirenCountdown())
 
 @bot.message_handler(commands=['смех'])
 def command_smeh(message):
