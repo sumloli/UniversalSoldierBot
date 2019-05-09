@@ -4,7 +4,7 @@ from countdown import *
 import os
 import random
 
-generate = random.choice(os.listdir('/Users/sumloli/Downloads/test'))
+generate = random.choice(os.listdir('/app/res/'))
 smeh = '/app/res/{}'.format(generate)
 
 @bot.message_handler(commands=['lolstart'])
