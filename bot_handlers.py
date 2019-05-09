@@ -22,14 +22,14 @@ def send_siren(message):
 @bot.message_handler(commands=['смех'])
 def command_smeh(message):
     bot.send_message(message.chat.id, 'доставлено:')
-    #voice = open(smeh, 'rb')
+    voice = open(smeh[0], 'rb')
     #voice = open('/app/res/samozvanec.ogg', 'rb')
-    bot.send_voice(message.chat.id, smeh)
+    bot.send_voice(message.chat.id, voice)
 
 @bot.message_handler(regexp='(ору|лол|смешно|хах|хаха)')
 def smeh(message):
-    #voice = open(smeh, 'rb')
-    bot.send_voice(message.chat.id, smeh)
+    voice = open(smeh[0], 'rb')
+    bot.send_voice(message.chat.id, voice)
 
 
 if __name__ == '__main__':
