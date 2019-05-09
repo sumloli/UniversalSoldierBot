@@ -11,7 +11,7 @@ def timed_job():
     print('This job is run every minute.')
 
 
-@sched.scheduled_job('cron', day='*', hour=18, minutes=50)
+@sched.scheduled_job('cron', day='*', hour=18, minute=52)
 def scheduled_job():
     print('This job is run every weekday at 5pm.')
 
