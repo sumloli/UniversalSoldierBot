@@ -13,7 +13,8 @@ def timed_job():
 
 @sched.scheduled_job('cron', day='*', hour=18, minute=52)
 def scheduled_job():
-    print('This job is run every weekday at 5pm.')
+    bot.send_message(-266154989, sirenCountdown())
+    print('This job is run every day at 12.')
 
 sched.start()
 
