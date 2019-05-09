@@ -39,7 +39,7 @@ def command_smeh(message):
     else:
         msg = 'Сегодня я САМОЗВАНЕЦ:'
 
-    voice = open(generate(), 'rb')
+    voice = open(_, 'rb')
     bot.send_message(message.chat.id, msg)
     bot.send_voice(message.chat.id, voice)
 
@@ -60,7 +60,7 @@ def smeh(message):
     else:
         msg = 'Сегодня я САМОЗВАНЕЦ:'
 
-    voice = open(generate(), 'rb')
+    voice = open(_, 'rb')
     bot.send_message(message.chat.id, msg)
     bot.send_voice(message.chat.id, voice)
 
