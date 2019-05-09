@@ -25,7 +25,7 @@ def send_siren(message):
 @bot.message_handler(commands=['смех'])
 def command_smeh(message):
     _ = generate()
-
+    print(_)
     if _ == '/app/res/igrivij.ogg':
         msg = 'Сегодня я игривый:'
     elif _ == '/app/res/impozantnij.ogg':
@@ -46,7 +46,7 @@ def command_smeh(message):
 @bot.message_handler(regexp='(ору|лол|смешно|хах|хаха)')
 def smeh(message):
     _ = generate()
-
+    print(_)
     if _ == '/app/res/igrivij.ogg':
         msg = 'Сегодня я игривый:'
     elif _ == '/app/res/impozantnij.ogg':
