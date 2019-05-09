@@ -7,6 +7,7 @@ def sirenCountdown():
     datelist = list(rrule(MONTHLY, count=10, byweekday=WE(1), dtstart=parse("2019-05-01T11:59:59")))
     dt = datetime.datetime
     now = dt.now()
-    count = datelist[1] - dt(year=now.year, month=now.month, day=now.day, hour=now.hour, minute=now.minute, second=now.second-1)
+    count = datelist[1] - dt(year=now.year, month=now.month, day=now.day,
+                             hour=now.hour, minute=now.minute, second=now.second-1)
 
     return print('До сирены осталось: {}'.format(count))

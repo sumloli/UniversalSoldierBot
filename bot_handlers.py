@@ -2,11 +2,6 @@ from bot import bot
 from messages import *
 from countdown import *
 
-#@bot.message_handler(commands=['start', 'soldier'])
-#def send_welcome(message):
-#    bot.send_message(message.chat.id, HELLO_MESSAGE)
-#    voice = open('/app/res/smeh.ogg', 'rb')
-#    bot.send_voice(message.chat.id, voice)
 
 @bot.message_handler(commands=['lolstart'])
 def send_welcome(message):
@@ -30,16 +25,6 @@ def command_smeh(message):
 def smeh(message):
     voice = open('/app/res/smeh.ogg', 'rb')
     bot.send_voice(message.chat.id, voice)
-
-#@bot.message_handler(regexp='(?:смех|смешно)')
-#def command_oldy3(message):
-#    bot.send_message(message.chat.id, 'ниже смех')
-#    voice = open('/app/res/smeh.ogg', 'rb')
-#    bot.send_voice(message.chat.id, voice)
-
-#@bot.message_handler(content_types=['text'])
-#def repeat_all_messages(message):
-#    bot.send_message(message.chat.id, message.text)
 
 
 if __name__ == '__main__':
