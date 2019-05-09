@@ -13,7 +13,7 @@ def send_help(message):
     bot.reply_to(message, HELP_MESSAGE)
 
 @bot.message_handler(commands=['siren'])
-def send_help(message):
+def send_siren(message):
     bot.reply_to(message, sirenCountdown())
 
 @bot.message_handler(commands=['смех'])
