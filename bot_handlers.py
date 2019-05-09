@@ -5,6 +5,7 @@ import os
 import random
 
 smeh = str(random.choice(os.listdir('/app/res/')))
+print(smeh)
 
 @bot.message_handler(commands=['lolstart'])
 def send_welcome(message):
