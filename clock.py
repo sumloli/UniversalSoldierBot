@@ -17,5 +17,5 @@ def scheduled_job():
     bot.send_message(-294448452, sirenCountdown())
     print('This job is run every day at 12.')
 
-sched.start()
 
+sched.start()

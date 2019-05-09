@@ -1,8 +1,10 @@
 from bot import bot
 from messages import *
 from countdown import *
+import os
+import random
 
-
+smeh = random.choice(os.listdir('/app/res/'))
 
 @bot.message_handler(commands=['lolstart'])
 def send_welcome(message):
@@ -19,12 +21,12 @@ def send_siren(message):
 @bot.message_handler(commands=['смех'])
 def command_smeh(message):
     bot.send_message(message.chat.id, 'доставлено:')
-    voice = open('/app/res/smeh.ogg', 'rb')
+    voice = open(smeh, 'rb')
     bot.send_voice(message.chat.id, voice)
 
 @bot.message_handler(regexp='(ору|лол|смешно|хах|хаха)')
 def smeh(message):
-    voice = open('/app/res/smeh.ogg', 'rb')
+    voice = open(smeh, 'rb')
     bot.send_voice(message.chat.id, voice)
 
 
