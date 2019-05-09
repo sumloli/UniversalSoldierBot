@@ -4,8 +4,11 @@ from countdown import *
 import os
 import random
 
-generate = random.choice(os.listdir('/app/res/'))
-smeh = '/app/res/{}'.format(generate)
+def generate():
+    gen = random.choice(os.listdir('/Users/sumloli/Downloads/test'))
+    smeh = '/app/res/{}'.format(gen)
+    return str(smeh)
+
 
 @bot.message_handler(commands=['lolstart'])
 def send_welcome(message):
@@ -22,13 +25,13 @@ def send_siren(message):
 @bot.message_handler(commands=['смех'])
 def command_smeh(message):
     bot.send_message(message.chat.id, 'доставлено:')
-    voice = open(smeh[0], 'rb')
+    voice = open(generate(), 'rb')
     #voice = open('/app/res/samozvanec.ogg', 'rb')
     bot.send_voice(message.chat.id, voice)
 
 @bot.message_handler(regexp='(ору|лол|смешно|хах|хаха)')
 def smeh(message):
-    voice = open(smeh[0], 'rb')
+    voice = open(generate(), 'rb')
     bot.send_voice(message.chat.id, voice)
 
 
