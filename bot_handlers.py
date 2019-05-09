@@ -5,7 +5,7 @@ import os
 import random
 
 def generate():
-    gen = random.choice(os.listdir('/Users/sumloli/Downloads/test'))
+    gen = random.choice(os.listdir('/app/res/'))
     smeh = '/app/res/{}'.format(gen)
     return str(smeh)
 
