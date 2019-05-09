@@ -8,6 +8,6 @@ def sirenCountdown():
     dt = datetime.datetime
     now = dt.now()
     count = datelist[1] - dt(year=now.year, month=now.month, day=now.day,
-                             hour=now.hour, minute=now.minute, second=now.second-1)
+                             hour=now.hour+2, minute=now.minute, second=now.second-1)
 
     return 'До сирены осталось: {}'.format(count)
