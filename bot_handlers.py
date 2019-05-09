@@ -4,8 +4,8 @@ from countdown import *
 import os
 import random
 
-smeh = str(random.choice(os.listdir('/app/res/')))
-print(smeh)
+generate = random.choice(os.listdir('/app/res/'))
+smeh = str(generate)
 
 @bot.message_handler(commands=['lolstart'])
 def send_welcome(message):
