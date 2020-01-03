@@ -4,7 +4,6 @@ from countdown import *
 
 sched = BlockingScheduler()
 
-
 #@sched.scheduled_job('interval', minutes=1)
 #def timed_job():
 #    bot.send_message(-294448452, text='This job is run every minute.')
