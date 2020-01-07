@@ -17,9 +17,9 @@ def scheduled_job():
     print('This job is run every day at 12.')
 
 
-@sched.scheduled_job('cron', day='*', hour=10, minute=55)
+@sched.scheduled_job('cron', day='*', hour=11, minute=5)
 def scheduled_job():
-    bot.send_message(-294448452, '/pidor@SublimeBot')
-    print('This job is run every day at 11.')
+    bot.send_message(-294448452, 'Ежедневное напоминание что Саня - пидор!')
+    print('This job is run every day at 12Ж05.')
 
 sched.start()
