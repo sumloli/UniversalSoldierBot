@@ -4,12 +4,12 @@ from countdown import *
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('interval', minutes=1)
-def timed_job():
-    bot.send_message(-294448452, text='This job is run every minute.')
-    bot.send_message(-294448452, text='Test rounding of timestamp now:')
-    bot.send_message(-294448452, sirenCountdown().split(',')[0])
-    print('This job is run every minute.')
+# @sched.scheduled_job('interval', minutes=1)
+# def timed_job():
+#     bot.send_message(-294448452, text='This job is run every minute.')
+#     bot.send_message(-294448452, text='Test rounding of timestamp now:')
+#     bot.send_message(-294448452, sirenCountdown().split(',')[0])
+#     print('This job is run every minute.')
 
 
 @sched.scheduled_job('cron', day='*', hour=11)
