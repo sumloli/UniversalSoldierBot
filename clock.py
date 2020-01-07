@@ -17,4 +17,9 @@ def scheduled_job():
     print('This job is run every day at 12.')
 
 
+@sched.scheduled_job('cron', day='*', hour=10, minute=50)
+def scheduled_job():
+    bot.send_message(-294448452, '/pidor')
+    print('This job is run every day at 11.')
+
 sched.start()
