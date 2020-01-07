@@ -12,3 +12,6 @@ def sirenCountdown():
             count = datelist[nextsiren] - dt(year=now.year, month=now.month, day=now.day,
                                              hour=now.hour+1, minute=now.minute, second=now.second)
             return 'До сирены осталось: {}'.format(count+datetime.timedelta(0, 1))
+print(sirenCountdown())
+otdel = sirenCountdown().split(',')[0]
+print(otdel)
