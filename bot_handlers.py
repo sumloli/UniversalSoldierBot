@@ -74,7 +74,7 @@ def smeh(message):
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def text_message(message):
-    if message.chat.type == "private":
+    if message.chat.type == "private" or message.chat.id == 805621916:
         request = apiai.ApiAI(config.DF_TOKEN).text_request()  # Token API of Dialogflow
         request.lang = config.BOT_LANG  # lang of request
         request.session_id = config.DF_SESSION  # ID of dialog session (for bot learning)
