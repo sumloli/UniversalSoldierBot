@@ -28,29 +28,7 @@ def send_siren(message):
     bot.reply_to(message, sirenCountdown())
 
 
-@bot.message_handler(commands=['смех'])
-def command_smeh(message):
-    _ = generate()
-    print(_)
-    if _ == '/app/res/igrivij.ogg':
-        msg = 'Сегодня я игривый:'
-    elif _ == '/app/res/impozantnij.ogg':
-        msg = 'Сегодня я импозантный:'
-    elif _ == '/app/res/iskrennij.ogg':
-        msg = 'Сегодня я искренний:'
-    elif _ == '/app/res/skromnij.ogg':
-        msg = 'Сегодня я скромный:'
-    elif _ == '/app/res/zagadochnij.ogg':
-        msg = 'Сегодня я загадочный:'
-    else:
-        msg = 'Сегодня я САМОЗВАНЕЦ:'
-
-    voice = open(_, 'rb')
-    bot.send_message(message.chat.id, msg)
-    bot.send_voice(message.chat.id, voice)
-
-
-@bot.message_handler(regexp='(ору|лол|смешно|хах|хаха|азаз)')
+@bot.message_handler(commands=['смех'], regexp='(ору|лол|смешно|хах|хаха|азаз)')
 def smeh(message):
     _ = generate()
     print(_)
@@ -78,13 +56,12 @@ def text_message(message):
     if message.chat.type == "private" or (
             message.reply_to_message is not None and message.reply_to_message.from_user.id == 805621916) or (
             'entities' in message.json and message.json['entities'][0]['type'] == 'mention'):
-        request = apiai.ApiAI(config.DF_TOKEN).text_request()  # Token API of Dialogflow
-        request.lang = config.BOT_LANG  # lang of request
-        request.session_id = config.DF_SESSION  # ID of dialog session (for bot learning)
-        request.query = message.text  # Send request to AI with user's message
+        request = apiai.ApiAI(config.DF_TOKEN).text_request()
+        request.lang = config.BOT_LANG
+        request.session_id = config.DF_SESSION
+        request.query = message.text
         response_json = json.loads(request.getresponse().read().decode('utf-8'))
-        response = response_json['result']['fulfillment']['speech']  # Retrieve json and get the answer
-        # If we take answer back, we will send it to the user, else we can't understand user
+        response = response_json['result']['fulfillment']['speech']
         if response:
             bot.send_message(message.chat.id, text=response)
         else:
