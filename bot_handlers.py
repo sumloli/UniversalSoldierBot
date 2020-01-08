@@ -72,14 +72,14 @@ def smeh(message):
     bot.send_voice(message.chat.id, voice)
 
 
-@bot.message_handler(func=lambda message: True, content_types=['text'])
+@bot.message_handler(func=lambda message: message.chat.type == 'private', content_types=['text'])
 def text_message(message):
     print(message)
     try:
         message.reply_to_message
     except AttributeError:
         message.reply_to_message.from_user.id = 1
-    if message.chat.type == "private" or message.reply_to_message.from_user.id == 805621916:
+    if message.reply_to_message.from_user.id == 805621916:
         request = apiai.ApiAI(config.DF_TOKEN).text_request()  # Token API of Dialogflow
         request.lang = config.BOT_LANG
         request.session_id = config.DF_SESSION  # ID of dialog session (for bot learning)
