@@ -75,7 +75,9 @@ def smeh(message):
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def text_message(message):
     print(message)
-    if message.chat.type == "private" or (message.reply_to_message is not None and message.reply_to_message.from_user.id == 805621916):
+    if message.chat.type == "private" or (
+            message.reply_to_message is not None and message.reply_to_message.from_user.id == 805621916) or (
+            message.json.entities.type == 'mention'):
         request = apiai.ApiAI(config.DF_TOKEN).text_request()  # Token API of Dialogflow
         request.lang = config.BOT_LANG  # lang of request
         request.session_id = config.DF_SESSION  # ID of dialog session (for bot learning)
