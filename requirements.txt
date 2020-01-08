@@ -4,3 +4,4 @@ gunicorn
 python-dateutil
 APScheduler
 apiai
+pymongo
