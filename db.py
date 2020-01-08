@@ -5,7 +5,6 @@ client = pymongo.MongoClient(
     'mongodb+srv://sumloli:{}@cluster0-deits.mongodb.net/test?retryWrites=true&w=majority'.format(DB_PASS))
 
 
-
 def db():
     database = client.sample_supplies
     collection = database.sales
