@@ -7,19 +7,20 @@ import random
 import apiai, json
 
 
-# @bot.message_handler(func=lambda message: True, content_types=['text'])
-# def text_message(message):
-#     request = apiai.ApiAI(config.DF_TOKEN).text_request()  # Token API of Dialogflow
-#     request.lang = config.BOT_LANG  # lang of request
-#     request.session_id = config.DF_SESSION  # ID of dialog session (for bot learning)
-#     request.query = message.text  # Send request to AI with user's message
-#     response_json = json.loads(request.getresponse().read().decode('utf-8'))
-#     response = response_json['result']['fulfillment']['speech']  # Retrieve json and get the answer
-#     # If we take answer back, we will send it to the user, else we can't understand user
-#     if response:
-#         bot.send_message(message.chat.id, text=response)
-#     else:
-#         bot.send_message(message.chat.id, text='Прости, но я тебя не понимаю(')
+@bot.message_handler(func=lambda message: True, content_types=['text'])
+def text_message(message):
+    if message.chat.type == "private":
+        request = apiai.ApiAI(config.DF_TOKEN).text_request()  # Token API of Dialogflow
+        request.lang = config.BOT_LANG  # lang of request
+        request.session_id = config.DF_SESSION  # ID of dialog session (for bot learning)
+        request.query = message.text  # Send request to AI with user's message
+        response_json = json.loads(request.getresponse().read().decode('utf-8'))
+        response = response_json['result']['fulfillment']['speech']  # Retrieve json and get the answer
+        # If we take answer back, we will send it to the user, else we can't understand user
+        if response:
+            bot.send_message(message.chat.id, text=response)
+        else:
+            bot.send_message(message.chat.id, text='Прости, но я тебя не понимаю(')
 
 
 def generate():
