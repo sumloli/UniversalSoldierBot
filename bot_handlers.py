@@ -1,6 +1,7 @@
 from bot import bot
 from messages import *
 from calculations import *
+from db import *
 import config
 import apiai
 import json
@@ -19,6 +20,11 @@ def send_help(message):
 @bot.message_handler(commands=['siren'])
 def send_siren(message):
     bot.reply_to(message, siren_countdown())
+
+
+@bot.message_handler(commands=['db'])
+def send_db(message):
+    bot.reply_to(message, db())
 
 
 @bot.message_handler(commands=['смех'])
