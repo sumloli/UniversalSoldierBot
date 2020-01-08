@@ -28,7 +28,7 @@ def send_siren(message):
     bot.reply_to(message, sirenCountdown())
 
 
-@bot.message_handler(commands=['смех'], regexp='(ору|лол|смешно|хах|хаха|азаз)')
+@bot.message_handler(commands=['смех'])
 def smeh(message):
     _ = generate()
     print(_)
