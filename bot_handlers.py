@@ -18,13 +18,13 @@ def send_help(message):
 
 @bot.message_handler(commands=['siren'])
 def send_siren(message):
-    bot.reply_to(message, sirenCountdown())
+    bot.reply_to(message, siren_countdown())
 
 
 @bot.message_handler(commands=['смех'])
 def command_smeh(message):
     _ = generate()
-    print(_)
+    # print(_)
     if _ == '/app/res/igrivij.ogg':
         msg = 'Сегодня я игривый:'
     elif _ == '/app/res/impozantnij.ogg':
@@ -46,7 +46,7 @@ def command_smeh(message):
 @bot.message_handler(regexp='(ору|лол|смешно|хах|хаха|азаз)')
 def smeh(message):
     _ = generate()
-    print(_)
+    # print(_)
     if _ == '/app/res/igrivij.ogg':
         msg = 'Сегодня я игривый:'
     elif _ == '/app/res/impozantnij.ogg':
@@ -67,7 +67,7 @@ def smeh(message):
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def text_message(message):
-    print(message)
+    # print(message)
     if message.chat.type == "private" or (
             message.reply_to_message is not None and message.reply_to_message.from_user.id == 805621916) or (
             'entities' in message.json and message.json['entities'][0]['type'] == 'mention'):

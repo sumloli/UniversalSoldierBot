@@ -11,7 +11,7 @@ def generate():
     return str(smeh)
 
 
-def sirenCountdown():
+def siren_countdown():
     datelist = list(rrule(MONTHLY, count=10, byweekday=WE(1), dtstart=parse("2019-05-01T11:59:59")))
     dt = datetime.datetime
     now = dt.now()

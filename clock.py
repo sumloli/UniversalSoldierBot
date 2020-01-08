@@ -14,7 +14,7 @@ sched = BlockingScheduler()
 
 @sched.scheduled_job('cron', day='*', hour=11)
 def scheduled_job():
-    bot.send_message(-294448452, sirenCountdown().split(',')[0])
+    bot.send_message(-294448452, siren_countdown().split(',')[0])
     print('This job is run every day at 12.')
 
 
@@ -22,5 +22,6 @@ def scheduled_job():
 def scheduled_job():
     bot.send_message(-294448452, 'Ежедневное напоминание что Саня - пидор!')
     print('This job is run every day at 11.')
+
 
 sched.start()
