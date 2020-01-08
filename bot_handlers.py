@@ -70,28 +70,23 @@ def smeh(message):
     voice = open(_, 'rb')
     bot.send_message(message.chat.id, msg)
     bot.send_voice(message.chat.id, voice)
-#func=lambda message: message.reply_to_message.from_user.id == 805621916,
-# message.chat.type == 'private' or
 
 
-@bot.message_handler(func=lambda message: message.reply_to_message.from_user.id == 805621916, content_types=['text'])
+@bot.message_handler(func=lambda message: True, content_types=['text'])
 def text_message(message):
     print(message)
-    try:
-        message.reply_to_message
-    except AttributeError:
-        message.reply_to_message.from_user.id = None
-    request = apiai.ApiAI(config.DF_TOKEN).text_request()  # Token API of Dialogflow
-    request.lang = config.BOT_LANG
-    request.session_id = config.DF_SESSION  # ID of dialog session (for bot learning)
-    request.query = message.text  # Send request to AI with user's message
-    response_json = json.loads(request.getresponse().read().decode('utf-8'))
-    response = response_json['result']['fulfillment']['speech']  # Retrieve json and get the answer
-    # If we take answer back, we will send it to the user, else we can't understand user
-    if response:
-        bot.send_message(message.chat.id, text=response)
-    else:
-        bot.send_message(message.chat.id, text='Прости, но я тебя не понимаю(')
+    if message.chat.type == "private" or message.chat.id == 805621916:
+        request = apiai.ApiAI(config.DF_TOKEN).text_request()  # Token API of Dialogflow
+        request.lang = config.BOT_LANG  # lang of request
+        request.session_id = config.DF_SESSION  # ID of dialog session (for bot learning)
+        request.query = message.text  # Send request to AI with user's message
+        response_json = json.loads(request.getresponse().read().decode('utf-8'))
+        response = response_json['result']['fulfillment']['speech']  # Retrieve json and get the answer
+        # If we take answer back, we will send it to the user, else we can't understand user
+        if response:
+            bot.send_message(message.chat.id, text=response)
+        else:
+            bot.send_message(message.chat.id, text='Прости, но я тебя не понимаю(')
 
 
 if __name__ == '__main__':
