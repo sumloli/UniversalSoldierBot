@@ -1,6 +1,14 @@
+import os
+import random
 from dateutil.rrule import *
 from dateutil.parser import *
 import datetime
+
+
+def generate():
+    gen = random.choice(os.listdir('/app/res/'))
+    smeh = '/app/res/{}'.format(gen)
+    return str(smeh)
 
 
 def sirenCountdown():

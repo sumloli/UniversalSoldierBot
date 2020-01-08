@@ -1,16 +1,9 @@
 from bot import bot
 from messages import *
-from countdown import *
+from calculations import *
 import config
-import os
-import random
-import apiai, json
-
-
-def generate():
-    gen = random.choice(os.listdir('/app/res/'))
-    smeh = '/app/res/{}'.format(gen)
-    return str(smeh)
+import apiai
+import json
 
 
 @bot.message_handler(commands=['lolstart'])
@@ -29,6 +22,28 @@ def send_siren(message):
 
 
 @bot.message_handler(commands=['смех'])
+def command_smeh(message):
+    _ = generate()
+    print(_)
+    if _ == '/app/res/igrivij.ogg':
+        msg = 'Сегодня я игривый:'
+    elif _ == '/app/res/impozantnij.ogg':
+        msg = 'Сегодня я импозантный:'
+    elif _ == '/app/res/iskrennij.ogg':
+        msg = 'Сегодня я искренний:'
+    elif _ == '/app/res/skromnij.ogg':
+        msg = 'Сегодня я скромный:'
+    elif _ == '/app/res/zagadochnij.ogg':
+        msg = 'Сегодня я загадочный:'
+    else:
+        msg = 'Сегодня я САМОЗВАНЕЦ:'
+
+    voice = open(_, 'rb')
+    bot.send_message(message.chat.id, msg)
+    bot.send_voice(message.chat.id, voice)
+
+
+@bot.message_handler(regexp='(ору|лол|смешно|хах|хаха|азаз)')
 def smeh(message):
     _ = generate()
     print(_)
