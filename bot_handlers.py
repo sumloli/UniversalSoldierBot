@@ -72,7 +72,7 @@ def smeh(message):
     bot.send_voice(message.chat.id, voice)
 
 
-@bot.message_handler(func=lambda message: (message.chat.type == 'private', message.reply_to_message.from_user.id == 805621916), content_types=['text'])
+@bot.message_handler(func=lambda message: message.chat.type == 'private', func=lambda message: message.reply_to_message.from_user.id == 805621916, content_types=['text'])
 def text_message(message):
     print(message)
     try:
