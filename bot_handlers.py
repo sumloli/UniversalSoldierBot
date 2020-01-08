@@ -76,7 +76,7 @@ def smeh(message):
 def text_message(message):
     print(message)
     try:
-        message.reply_to_message.from_user.id
+        message.reply_to_message
     except AttributeError:
         message.reply_to_message.from_user.id = None
     if message.chat.type == "private" or message.reply_to_message.from_user.id == 805621916:
