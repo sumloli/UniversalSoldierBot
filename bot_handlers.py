@@ -78,7 +78,7 @@ def text_message(message):
     try:
         message.reply_to_message
     except AttributeError:
-        message.reply_to_message.from_user.id = None
+        message.reply_to_message.from_user.id = 1
     if message.chat.type == "private" or message.reply_to_message.from_user.id == 805621916:
         request = apiai.ApiAI(config.DF_TOKEN).text_request()  # Token API of Dialogflow
         request.lang = config.BOT_LANG
