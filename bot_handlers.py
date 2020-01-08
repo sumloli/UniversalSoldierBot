@@ -75,9 +75,13 @@ def smeh(message):
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def text_message(message):
     print(message)
+    try:
+        message.reply_to_message.from_user.id
+    except AttributeError:
+        message.reply_to_message.from_user.id = None
     if message.chat.type == "private" or message.reply_to_message.from_user.id == 805621916:
         request = apiai.ApiAI(config.DF_TOKEN).text_request()  # Token API of Dialogflow
-        request.lang = config.BOT_LANG  # lang of request
+        request.lang = config.BOT_LANG
         request.session_id = config.DF_SESSION  # ID of dialog session (for bot learning)
         request.query = message.text  # Send request to AI with user's message
         response_json = json.loads(request.getresponse().read().decode('utf-8'))
