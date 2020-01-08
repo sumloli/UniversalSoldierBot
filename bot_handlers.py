@@ -70,9 +70,10 @@ def smeh(message):
     voice = open(_, 'rb')
     bot.send_message(message.chat.id, msg)
     bot.send_voice(message.chat.id, voice)
+#func=lambda message: message.reply_to_message.from_user.id == 805621916,
 
 
-@bot.message_handler(func=lambda message: message.chat.type == 'private', func=lambda message: message.reply_to_message.from_user.id == 805621916, content_types=['text'])
+@bot.message_handler(func=lambda message: message.chat.type == 'private' or message.reply_to_message.from_user.id == 805621916, content_types=['text'])
 def text_message(message):
     print(message)
     try:
