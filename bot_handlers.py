@@ -7,6 +7,10 @@ import apiai
 import json
 
 
+@bot.message_handler(commands=['c'])
+def command(message):
+    bot.send_message(message.chat.id, message.text)
+
 @bot.message_handler(commands=['lolstart'])
 def send_welcome(message):
     bot.reply_to(message, HELLO_MESSAGE)
