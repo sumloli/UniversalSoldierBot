@@ -10,7 +10,7 @@ import json
 @bot.message_handler(commands=['c'])
 def command(message):
     bot.send_message(message.chat.id, 'Your command is:')
-    bot.send_message(message.chat.id, "'''{}'''".format(message.text[2:]))
+    bot.send_message(message.chat.id, "```{}```".format(message.text[2:]))
     bot.send_message(message.chat.id, 'Result:')
 
 
