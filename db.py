@@ -1,6 +1,6 @@
 import pymongo
 from config import *
-import os
+
 
 
 client = pymongo.MongoClient(
@@ -12,7 +12,6 @@ def db():
     collection = database.sales
     print('MongoDB version is {}'.format(client.server_info()['version']))
     print(collection)
-    print(os.environ['test_var'])
     return 'REQUESTED COLLECTION: \n{}'.format(collection) + '\nMongoDB version is {}'.format(client.server_info()['version']) + 'TUT TEST:{}'.format(os.environ['test_var'])
 
 
