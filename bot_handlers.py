@@ -9,8 +9,9 @@ import json
 
 @bot.message_handler(commands=['c'])
 def command(message):
+    print(message)
     bot.send_message(message.chat.id, 'Your command is:')
-    bot.send_message(message.chat.id, "```{}```".format(message.text[3:]))
+    bot.send_message(message.chat.id, message.text[3:])
     bot.send_message(message.chat.id, 'Result:')
 
 
