@@ -84,7 +84,7 @@ def text_message(message):
     print(message)
     if message.chat.type == "private" or (
             message.reply_to_message is not None and message.reply_to_message.from_user.id == 805621916) or (
-            'entities' in message.json and message.json['entities'][0]['type'] == 'mention'):
+            '@UniversalSoldier' in message.text and 'entities' in message.json and message.json['entities'][0]['type'] == 'mention'):
         request = apiai.ApiAI(config.DF_TOKEN).text_request()
         request.lang = config.BOT_LANG
         request.session_id = config.DF_SESSION
