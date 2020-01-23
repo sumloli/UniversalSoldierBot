@@ -20,7 +20,7 @@ def scheduled_job():
 
 @sched.scheduled_job('cron', day='*', hour=10)
 def scheduled_job():
-    bot.send_message(-294448452, 'Ежедневное напоминание что Саня - пидор!')
+    bot.send_message(-294448452, 'Ежедневное напоминание что Саня - красавчик!')
     print('This job is run every day at 11.')
 
 
