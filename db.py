@@ -1,6 +1,6 @@
 import pymongo
 from config import *
-from datetime import date
+from datetime import date, datetime
 import random
 
 client = pymongo.MongoClient(
@@ -21,7 +21,7 @@ def db_sanya():
     database = client.sanya
     collection = database.stats
 
-    emp_rec1 = {f'{date.strftime("%d-%m-%Y %H:%M:%S")}': today}
+    emp_rec1 = {f'{datetime.now().strftime("%d-%m-%Y %H:%M:%S")}': today}
 
     # Insert Data
     rec_id1 = collection.insert_one(emp_rec1)
