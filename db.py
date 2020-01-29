@@ -11,7 +11,7 @@ def db():
     collection = database.sales
     print('MongoDB version is {}'.format(client.server_info()['version']))
     print(collection)
-    return 'REQUESTED COLLECTION: \n{}'.format(collection) + '\nMongoDB version is {}'.format(client.server_info()['version']) + '🐍:{}'.format(os.environ['test_var'])
+    return f'MongoDB version is {client.server_info()["version"]}\n' + f'🐍🐍🐍🐍🐍{os.environ["test_var"]}🐍🐍🐍🐍🐍'
 
 
 def db_sanya():
@@ -24,11 +24,11 @@ def db_sanya():
     rec_id1 = collection.insert_one(emp_rec1)
     print("Data inserted with record id", rec_id1)
 
-    cursor = collection.find()
-    for record in cursor:
-        print(record)
-    array = list(collection.find({}, {'_id': False}))
-    print(array)
+    # cursor = collection.find()
+    # for record in cursor:
+    #     print(record)
+    # array = list(collection.find({}, {'_id': False}))
+    # print(array)
     return today
 
 def db_sanya_get_stat():
@@ -36,6 +36,6 @@ def db_sanya_get_stat():
     collection = database.stats
     data = list(collection.find({}, {'_id': False}))
     print(data)
-    stat_kras = sum(x.get('status') == 'пидор' for x in data)
-    sanya_stat = int(stat_kras / len(data) * 100)
+    stat_pidr = sum(x.get('status') == 'пидор' for x in data)
+    sanya_stat = int(stat_pidr / len(data) * 100)
     return f'По статистике Саня на {sanya_stat}% пидор и на {100-sanya_stat}% красавчик'
