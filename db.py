@@ -20,7 +20,7 @@ def db_sanya(input):
     collection = database.stats
 
     emp_rec1 = {
-        f'{date.today().strftime("%m-%d-%Y")}': f"{input}",
+        f'{date.today().strftime("%m-%d-%Y")}': input,
     }
 
     # Insert Data
@@ -32,3 +32,4 @@ def db_sanya(input):
     cursor = collection.find()
     for record in cursor:
         print(record)
+    return 'done'
