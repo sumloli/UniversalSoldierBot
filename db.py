@@ -32,6 +32,6 @@ def db_sanya():
     cursor = collection.find()
     for record in cursor:
         print(record)
-    array = list(collection.find())
+    array = list(collection.find({}, {'_id': False}))
     print(array)
     return f'Ежедневное напоминание что Саня - {today}'
