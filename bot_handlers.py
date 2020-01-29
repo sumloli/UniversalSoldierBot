@@ -32,7 +32,7 @@ def send_siren(message):
 
 @bot.message_handler(commands=['dbs'])
 def send_db(message):
-    bot.reply_to(message, db_sanya(message.text[:4]))
+    bot.reply_to(message, db_sanya(message.text[5:]))
 
 @bot.message_handler(commands=['db'])
 def send_db(message):
