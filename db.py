@@ -41,6 +41,6 @@ def db_sanya_get_stat():
     collection = database.stats
     data = list(collection.find({}, {'_id': False}))
     print(data)
-    stat_kras = sum(x.get('status') == 'красавчик' for x in data)
+    stat_kras = sum(x.get('status') == 'пидор' for x in data)
     sanya_stat = int(stat_kras / len(data) * 100)
     return f'По статистике Саня на {sanya_stat}% пидор и на {100-sanya_stat}% красавчик'
