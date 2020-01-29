@@ -91,7 +91,6 @@ def smeh(message):
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def text_message(message):
-    #print(message)
     if message.chat.type == "private" or (
             message.reply_to_message is not None and message.reply_to_message.from_user.id == 805621916) or \
             '@UniversalSoldier' in message.text:
