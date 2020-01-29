@@ -7,7 +7,7 @@ sched = BlockingScheduler()
 
 @sched.scheduled_job('interval', minutes=1)
 def timed_job():
-    bot.send_message(-266154989, text='This job is run every minute.')
+    bot.send_message(-266154989, text='This job is run every minute')
     bot.send_message(-266154989, text='Test rounding of timestamp now:')
     bot.send_message(-266154989, db_sanya())
     print('This job is run every minute.')
