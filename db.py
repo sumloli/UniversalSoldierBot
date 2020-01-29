@@ -30,9 +30,8 @@ def db_sanya():
 
     # Printing the data inserted
     cursor = collection.find()
-    cursor2 = database.find()
     for record in cursor:
         print(record)
-    for record in cursor2:
-        print(record)
+    array = list(collection.find())
+    print(array)
     return f'Ежедневное напоминание что Саня - {today}'
