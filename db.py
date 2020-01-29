@@ -1,6 +1,6 @@
 import pymongo
 from config import *
-import datetime
+from datetime import date
 
 
 client = pymongo.MongoClient(
@@ -20,7 +20,7 @@ def db_sanya(input):
     collection = database.stats
 
     emp_rec1 = {
-        str(datetime.datetime.now()): f"{input}",
+        f'Updated {date.today().strftime("%m/%d/%Y")}': f"{input}",
     }
 
     # Insert Data
