@@ -21,6 +21,7 @@ def db_sanya():
     collection = database.stats
 
     emp_rec1 = {'status': today}
+    # emp_rec1 = {f'{datetime.now().strftime("%d-%m-%Y %H:%M:%S")}': today}
 
     # Insert Data
     rec_id1 = collection.insert_one(emp_rec1)
@@ -31,6 +32,6 @@ def db_sanya():
     cursor = collection.find()
     for record in cursor:
         print(record)
-    array = list(collection.find())
+    array = list(collection.find({"_id": 0}))
     print(array)
     return f'Ежедневное напоминание что Саня - {today}'
