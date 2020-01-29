@@ -30,9 +30,15 @@ def send_siren(message):
     bot.reply_to(message, siren_countdown())
 
 
-@bot.message_handler(commands=['sanya_stat'])
+@bot.message_handler(commands=['db'])
+def send_db(message):
+    bot.reply_to(message, db())
+
+
+@bot.message_handler(commands=['sanyastat'])
 def send_db(message):
     bot.reply_to(message, db_sanya_get_stat())
+
 
 @bot.message_handler(commands=['sanya'])
 def send_db(message):
