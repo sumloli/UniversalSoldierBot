@@ -8,7 +8,7 @@ sched = BlockingScheduler()
 @sched.scheduled_job('interval', minutes=1)
 def timed_job():
     bot.send_message(-266154989, text='This job is run every minute')
-    bot.send_message(-266154989, text='Test rounding of timestamp now:')
+    bot.send_message(-266154989, text='Test db_sanya func:')
     bot.send_message(-266154989, db_sanya())
     print('This job is run every minute.')
 
@@ -19,10 +19,9 @@ def scheduled_job():
     print('This job is run every day at 12.')
 
 
-@sched.scheduled_job('cron', day='*', hour=10, minute=45)
+@sched.scheduled_job('cron', day='*', hour=10)
 def scheduled_job():
-    today = random.choice(["красавчик", "пидор"])
-    bot.send_message(-294448452, f'Ежедневное напоминание что Саня - {today}')
+    bot.send_message(-294448452, db_sanya())
     print('This job is run every day at 11.')
 
 
