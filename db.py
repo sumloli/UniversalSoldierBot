@@ -21,14 +21,9 @@ def db_sanya():
     collection = database.stats
 
     emp_rec1 = {'status': today}
-    # emp_rec1 = {f'{datetime.now().strftime("%d-%m-%Y %H:%M:%S")}': today}
-
-    # Insert Data
     rec_id1 = collection.insert_one(emp_rec1)
-
     print("Data inserted with record id", rec_id1)
 
-    # Printing the data inserted
     cursor = collection.find()
     for record in cursor:
         print(record)
