@@ -1,7 +1,7 @@
 import pymongo
 from config import *
 from datetime import date
-
+import random
 
 client = pymongo.MongoClient(
     'mongodb+srv://sumloli:{}@cluster0-deits.mongodb.net/test?retryWrites=true&w=majority'.format(DB_PASS))
@@ -15,13 +15,13 @@ def db():
     return 'REQUESTED COLLECTION: \n{}'.format(collection) + '\nMongoDB version is {}'.format(client.server_info()['version']) + '🐍:{}'.format(os.environ['test_var'])
 
 
-def db_sanya(input):
+def db_sanya():
+    today = random.choice(["красавчик", "пидор"])
+
     database = client.sanya
     collection = database.stats
 
-    emp_rec1 = {
-        f'{date.today().strftime("%d-%m-%Y")}': input,
-    }
+    emp_rec1 = {f'{date.today().strftime("%d-%m-%Y% H:%M:%S")}': today}
 
     # Insert Data
     rec_id1 = collection.insert_one(emp_rec1)
@@ -32,4 +32,4 @@ def db_sanya(input):
     cursor = collection.find()
     for record in cursor:
         print(record)
-    return 'done'
+    return f'Ежедневное напоминание что Саня - {today}'
