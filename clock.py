@@ -1,6 +1,7 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 from bot import bot
 from calculations import *
+import random
 
 sched = BlockingScheduler()
 
@@ -20,7 +21,7 @@ def scheduled_job():
 
 @sched.scheduled_job('cron', day='*', hour=10)
 def scheduled_job():
-    bot.send_message(-294448452, 'Ежедневное напоминание что Саня - красавчик!')
+    bot.send_message(-294448452, f'Ежедневное напоминание что Саня - {random.choice(["красавчик", "пидор"])}')
     print('This job is run every day at 11.')
 
 
