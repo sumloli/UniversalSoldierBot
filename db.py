@@ -20,7 +20,7 @@ def db_sanya(input):
     collection = database.stats
 
     emp_rec1 = {
-        datetime.datetime.now(): f"{input}",
+        str(datetime.datetime.now()): f"{input}",
     }
 
     # Insert Data
