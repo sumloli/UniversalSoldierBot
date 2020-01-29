@@ -29,7 +29,7 @@ def db_sanya():
         print(record)
     array = list(collection.find({}, {'_id': False}))
     print(array)
-    return f'Ежедневное напоминание что Саня - {today}'
+    return today
 
 def db_sanya_get_stat():
     database = client.sanya

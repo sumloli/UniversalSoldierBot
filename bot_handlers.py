@@ -42,7 +42,7 @@ def send_db(message):
 
 @bot.message_handler(commands=['sanya'])
 def send_db(message):
-    bot.reply_to(message, db_sanya())
+    bot.reply_to(message, f'И кто же у нас Саня? Да он же - {db_sanya()}')
 
 
 @bot.message_handler(commands=['смех'])
