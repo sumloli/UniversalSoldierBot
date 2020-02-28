@@ -19,6 +19,7 @@ def scheduled_job():
     print('This job is run every minute.')
 
 
+
 @sched.scheduled_job('cron', day='*', hour=11)
 def scheduled_job():
     bot.send_message(-294448452, siren_countdown().split(',')[0])
