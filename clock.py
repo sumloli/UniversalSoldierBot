@@ -13,13 +13,12 @@ sched = BlockingScheduler()
 #     print('This job is run every minute.')
 
 
-
-@sched.scheduled_job('interval', minutes=1)
-def scheduled_job():
-    bot.send_message(-294448452, text='DEBUG')
-    bot.send_message(-294448452, text='This job is run every minute')
-    bot.send_message(-294448452, siren_countdown().split(',')[0])
-    print('This job is run every minute.')
+# @sched.scheduled_job('interval', minutes=1)
+# def scheduled_job():
+#     bot.send_message(-294448452, text='DEBUG')
+#     bot.send_message(-294448452, text='This job is run every minute')
+#     bot.send_message(-294448452, siren_countdown().split(',')[0])
+#     print('This job is run every minute.')
 
 
 @sched.scheduled_job('cron', day='*', hour=10)
