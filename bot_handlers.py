@@ -67,26 +67,26 @@ def command_smeh(message):
     bot.send_voice(message.chat.id, voice)
 
 
-@bot.message_handler(regexp='(ору|лол|смешно|хах|хаха|азаз)')
-def smeh(message):
-    _ = generate()
-    # print(_)
-    if _ == '/app/res/igrivij.ogg':
-        msg = 'Сегодня я игривый:'
-    elif _ == '/app/res/impozantnij.ogg':
-        msg = 'Сегодня я импозантный:'
-    elif _ == '/app/res/iskrennij.ogg':
-        msg = 'Сегодня я искренний:'
-    elif _ == '/app/res/skromnij.ogg':
-        msg = 'Сегодня я скромный:'
-    elif _ == '/app/res/zagadochnij.ogg':
-        msg = 'Сегодня я загадочный:'
-    else:
-        msg = 'Сегодня я САМОЗВАНЕЦ:'
-
-    voice = open(_, 'rb')
-    bot.send_message(message.chat.id, msg)
-    bot.send_voice(message.chat.id, voice)
+# @bot.message_handler(regexp='(ору|лол|смешно|хах|хаха|азаз)')
+# def smeh(message):
+#     _ = generate()
+#     # print(_)
+#     if _ == '/app/res/igrivij.ogg':
+#         msg = 'Сегодня я игривый:'
+#     elif _ == '/app/res/impozantnij.ogg':
+#         msg = 'Сегодня я импозантный:'
+#     elif _ == '/app/res/iskrennij.ogg':
+#         msg = 'Сегодня я искренний:'
+#     elif _ == '/app/res/skromnij.ogg':
+#         msg = 'Сегодня я скромный:'
+#     elif _ == '/app/res/zagadochnij.ogg':
+#         msg = 'Сегодня я загадочный:'
+#     else:
+#         msg = 'Сегодня я САМОЗВАНЕЦ:'
+#
+#     voice = open(_, 'rb')
+#     bot.send_message(message.chat.id, msg)
+#     bot.send_voice(message.chat.id, voice)
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
