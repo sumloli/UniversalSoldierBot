@@ -67,6 +67,7 @@ def command_smeh(message):
     bot.send_voice(message.chat.id, voice)
 
 
+
 # @bot.message_handler(regexp='(ору|лол|смешно|хах|хаха|азаз)')
 # def smeh(message):
 #     _ = generate()
